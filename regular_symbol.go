@@ -105,12 +105,12 @@ var (
 )
 
 func buildRegularSymbol(version qrCodeVersion, mask int,
-	data *bitset.Bitset, includeQuietZone bool) (*symbol, error) {
+	data *bitset.Bitset, borderWidth int) (*symbol, error) {
 
-	quietZoneSize := 0
-	if includeQuietZone {
-		quietZoneSize = version.quietZoneSize()
-	}
+	quietZoneSize := borderWidth
+	// if includeQuietZone {
+	// 	quietZoneSize = version.quietZoneSize()
+	// }
 
 	m := &regularSymbol{
 		version: version,
